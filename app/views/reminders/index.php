@@ -12,6 +12,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>Reminders</h1>
+                <!-- TODO: Create a new reminder link -->
             </div>
         </div>
     </div>
+    <?php
+        print_r($data['reminders']);
+    ?>
+<!-- TODO: Display in table format by iterating through reminders -->
