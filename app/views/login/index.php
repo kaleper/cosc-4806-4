@@ -1,3 +1,5 @@
+<?php require_once 'app/views/templates/headerPublic.php' ?>
+
 <?php
 
 // Displays invalid login attempts, if any & if failed auths < 3
@@ -43,7 +45,8 @@ if ($_SESSION['timeUnlocked'] - time() > 0 && isset($_SESSION['lockedMsg'])) {
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Login</title>
-		<link rel="stylesheet" href="/app/views/css/login.css">
+		<!-- Stylesheet is pre-boostrap -->
+		<!-- <link rel="stylesheet" href="/app/views/css/login.css"> -->
 </head>
 	
 <main role="main" class="container">
@@ -77,3 +80,5 @@ if ($_SESSION['timeUnlocked'] - time() > 0 && isset($_SESSION['lockedMsg'])) {
 		</form> 
 	</div>
 </div>
+
+<?php require_once 'app/views/templates/footer.php' ?>

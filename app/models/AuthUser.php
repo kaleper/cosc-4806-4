@@ -31,6 +31,9 @@ class AuthUser {
       if (password_verify($password, $rows['password']) && !isset($_SESSION['timeLocked'])) {
 			$_SESSION['auth'] = 1;
 			$_SESSION['username'] = ucwords($username);
+
+        //TODO: Use this userid session variable for reminders when making create statement
+        $_SESSION['userid'] = $rows['userid'];
 			unset($_SESSION['failedAuth']);
 
       //Add attempt to database

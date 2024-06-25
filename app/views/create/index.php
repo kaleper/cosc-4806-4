@@ -1,3 +1,5 @@
+<?php require_once 'app/views/templates/header.php'?>
+
 <?php
 
     // Displays username taken message
@@ -18,7 +20,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/app/views/css/create.css">
+    <!-- css is pre-bootstrap -->
+    <!-- <link rel="stylesheet" href="/app/views/css/create.css"> -->
 </head>
 
 <main role="main" class="container">
@@ -66,3 +69,5 @@
     </form> 
   </div>
 </div>
+
+<?php require_once 'app/views/templates/footer.php'?>

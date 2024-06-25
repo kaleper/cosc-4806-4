@@ -9,4 +9,13 @@ class Reminders extends Controller {
       $this->view('reminders/index', ['reminders' => $list_of_reminders]);
 
     }
+
+  public function create() {		
+
+    $reminder = $this->model('Reminder');
+    $this->view('reminders/create');
+    //TODO: 
+    // 1. Create create_reminder view
+    // 2. Keep user_id in session from reminders table 
+  }
 }

@@ -1,10 +1,13 @@
+<?php require_once 'app/views/templates/header.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
-        <link rel="stylesheet" href="/app/views/css/home.css">
+        <!-- Code pre-bootstrap -->
+        <!-- <link rel="stylesheet" href="/app/views/css/home.css"> -->
 </head>
 
 <div class="container">
@@ -22,3 +25,4 @@
             <p> <a href="/logout">Click here to logout</a></p>
         </div>
     </div>
+    <?php require_once 'app/views/templates/footer.php' ?>
