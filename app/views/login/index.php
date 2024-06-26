@@ -1,5 +1,3 @@
-<?php require_once 'app/views/templates/headerPublic.php' ?>
-
 <?php
 
 // Displays invalid login attempts, if any & if failed auths < 3
@@ -38,47 +36,41 @@ if ($_SESSION['timeUnlocked'] - time() > 0 && isset($_SESSION['lockedMsg'])) {
 ?>
 
 
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Login</title>
-		<!-- Stylesheet is pre-boostrap -->
-		<!-- <link rel="stylesheet" href="/app/views/css/login.css"> -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="app/views/css/login.css"> 
 </head>
-	
-<main role="main" class="container">
-    <div class="page-header" id="banner">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>You are not logged in</h1>
-            </div>
-        </div>
-    </div>
 
-<div class="row">
-    <div class="col-sm-auto">
-		<form action="/login/verify" method="post" >
-		<fieldset>
-			<div class="form-group">
-				<label for="username">Username: </label>
-				<input required type="text" class="form-control" name="username">
-	
-			</div>
-			<div class="form-group">
-				<label for="password">Password: </label>
-				<input required type="password" class="form-control" name="password">
-			</div>
-            <br>
-			<div id= "button-container">
-		    <button type="submit" class="btn btn-primary">Login</button>
-				<a href="/create">Sign Up</a>
-			</div>
-		</fieldset>
+<body>
+
+	<div class="form-container text-center mt-5 mb-3 px-5 py-5">
+		<form action="/login/verify" method="post">
+			<h1 class="header h2 fw-normal">Sign In</h1>
+			<fieldset class="container mt-4">
+				<div class="form-group mb-1">
+					<label class="visually-hidden">Username</label>
+					<input type="text" class="form-control" placeholder="Username" name="username" required autofocus>
+				</div>
+				<div class="form-group">
+					<label class="visually-hidden" >Password </label>
+					<input type="password" class="form-control" placeholder="Password" name="password" required autofocus>
+				</div>
+				<div class="button mt-3">
+					<button type="submit" class="btn btn-primary">Login</button>
+				</div>
+					<div class="sign-up mt-4"> New here?
+						<span>
+							<a class=link href="/create">Sign Up</a> 
+						</span>
+					</div>
+			</fieldset>
 		</form> 
 	</div>
-</div>
-
-<?php require_once 'app/views/templates/footer.php' ?>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>

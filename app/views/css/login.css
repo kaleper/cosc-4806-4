@@ -1,82 +1,23 @@
-* {
-  /* Document background color */
-  background-color: #E9E6E2;
-  font-family: "Roboto", sans-serif;
+body {
+  background-color:rgb(179, 200, 207);
+
+}
+.form-container {
+  max-width:400px;
+  /* center form */
+  margin:auto;
+  background-color: white;
+  border-radius:15px;
 }
 
-h1 {
- color: #535E4B;
-  text-align: center;
+.btn {
+/* Syntax for bootstrap */
 }
 
-
-form {
-  display: flex;
-  justify-content: center;
-}
-
-/* Keeps space between label and text field consistent with space */ 
-.form-group {
-  display:flex;
-  justify-content:space-between;
-  gap: 10px;
-  margin:5px;
-}
-
-
-.form-group label {
-  color:#293720;
-  font-weight:bold; 
+.header{
  
 }
 
-.form-group input {
-  background-color: #e8e8e8;
-}
-
-/* Displays buttons on one row with space between */
-form #button-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* Rounds out button */
-input, button[type="submit"] {
-  border-radius: 5px;
-}
-
-fieldset {
-  border:none;
-}
-
-a:visited {
-  color:#535E4B;
-}
-
-button {
-  background-color: #e8e8e8;
-}
-
-button:hover, input:hover {
-  background-color: #aeb9a7;
-}
-
-/* remove underline from link */
-a {
+.link {
   text-decoration:none;
-}
-
-a:hover {
-   color: #aeb9a7;
-}
-
-#invalid-attempt, #account-locked {
-  color:#dd6464;
-  text-align: center;
-}
-
-#successful-registration {
-  color:#535E4B;
-  text-align: center; 
 }

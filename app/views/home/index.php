@@ -6,6 +6,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
+
+    
         <!-- Code pre-bootstrap -->
         <!-- <link rel="stylesheet" href="/app/views/css/home.css"> -->
 </head>
