@@ -15,20 +15,27 @@
         <div class="row mt-4">
             <div class="col-lg-12">
                 <h3 class="reminders">Reminders</h3>
-                <p> <a class="link" href="/reminders/create">Create a new reminder</a></p>
+                <p> <a class="link" href="/reminders/create_reminder">Create a new reminder</a></p>
             </div>
         </div>
     </div>
 </body>
 
-<!-- 
-    print_r($data['reminders']);
-        Code below, doesn't display reminder subject . . . $data -> why is it undefined?
-        
-        foreach ($data['reminders'] as $reminder) {
-        echo "<p>" . $reminder['subject'] . ' <a href="/reminder/update">update</a> delete</p>';
+   
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-lg-12">
+                <?php
+                    // print_r($data['reminders']);
+                    foreach ($data['reminders'] as $reminder) {
+                        echo "<p>" . $reminder['subject'] . "</p>";
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
 
-} -->
+
     
 <!-- TODO: Display in table format by iterating through reminders -->
 

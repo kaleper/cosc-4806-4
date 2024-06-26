@@ -10,10 +10,10 @@ class Reminders extends Controller {
 
     }
 
-  public function create() {		
+  public function create_reminder() {		
 
     $reminder = $this->model('Reminder');
-    $this->view('reminders/create');
+    $this->view('reminders/create_reminder');
     //TODO: 
     // 1. Create create_reminder view
     // 2. Keep user_id in session from reminders table 
