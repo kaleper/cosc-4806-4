@@ -30,15 +30,33 @@
                 
                 <?php
                     // print_r($data['reminders']);
-                if (!isset($_SESSION['userid']) && $_SESSION['auth'] = 1) {
-                    echo "not set";
+
+                // Creates a table of reminders if there are reminders associate with the user 
+                if (!$data['reminders']) {
+                    echo "<p>No reminders found.</p>";
                 } else {
-                    echo "user id is:" . $_SESSION['userid'];
+                    // Create table header
+                    echo "<table class= 'table table-striped'>
+                            <thead>
+                                <tr>
+                                     <th> Reminder </th>
+                                     <th> Date Created </th>
+                                     <th> Completed? </th>
+                                     <th colspan='2'> Actions </th>
+                                </tr>
+                            </thead>
+                            <tbody>";
                 }
-                
-                
+            
                 foreach ($data['reminders'] as $reminder) {
-                        echo "<p>" . $reminder['subject'] . "</p>";
+                        echo
+                            " <tr>" .
+                                "<td>" . $reminder['subject'] . "</td>" .
+                                "<td>" . $reminder['created_at'] . "</td>" .
+                                "<td>" . $reminder['completed'] . "</td>" .
+                                "<td>" . "<a href='#'> Update </a>". "</td>" .
+                                "<td>" . "<a href='#'> Delete </a>". "</td>" 
+                            ;
                     }
                 ?>
             </div>
