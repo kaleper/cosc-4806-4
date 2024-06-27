@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create a Reminder</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Currently not working - not sure why? -->
-    <link rel="stylesheet" href="app/views/css/reminders.css">
+    
+    <!-- **ADDRESSES CACHE ISSUE WHERE CSS DOESN'T LOAD** -->
+    <style>
+      <?php include "app/views/css/new_reminder.css" ?>
+    </style>
+
+    <link rel="stylesheet" href="app/views/css/new_reminder.css"
     
     <!-- JS Pluigin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
