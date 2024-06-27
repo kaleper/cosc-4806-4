@@ -27,9 +27,17 @@
     <div class="container">
         <div class="row mt-2">
             <div class="col-lg-12">
+                
                 <?php
                     // print_r($data['reminders']);
-                    foreach ($data['reminders'] as $reminder) {
+                if (!isset($_SESSION['userid']) && $_SESSION['auth'] = 1) {
+                    echo "not set";
+                } else {
+                    echo "user id is:" . $_SESSION['userid'];
+                }
+                
+                
+                foreach ($data['reminders'] as $reminder) {
                         echo "<p>" . $reminder['subject'] . "</p>";
                     }
                 ?>

@@ -4,3 +4,7 @@
 <?php
   echo "hello"
 ?>
+
+<!-- Add form looking like user sign up. Take subject and other table items. Add in with session user_id:
+
+$_SESSION['userid'] -->

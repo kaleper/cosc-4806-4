@@ -18,6 +18,7 @@
             <div class="col-lg-12">
                 <h4 class="greeting">Welcome, <?=$_SESSION['username']?></h1>
                 <p id="date"> <span id ="date-label">Today's Date:</span> <?= date("F jS, Y"); ?></p>
+
             </div>
         </div>
     </div>

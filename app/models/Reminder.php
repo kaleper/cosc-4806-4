@@ -9,7 +9,9 @@ class Reminder {
 
     public function get_all_reminders () {
       $db = db_connect();
-      $statement = $db->prepare("select * from reminders;");
+      // Selects reminders only associated with logged in user
+      $statement = $db->prepare("select * from reminders WHERE user_id = :userid");
+      $statement->bindParam(':userid', $_SESSION['userid']);
       $statement->execute();
       $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
       return $rows;

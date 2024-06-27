@@ -26,6 +26,7 @@ class AuthUser {
         $statement->bindValue(':name', $username);
         $statement->execute();
         $rows = $statement->fetch(PDO::FETCH_ASSOC);
+    
 		
 		// Checks if credentials are valid and session is not currenty locked to authorize user and pass username into   session variable
       if (password_verify($password, $rows['password']) && !isset($_SESSION['timeLocked'])) {
@@ -33,7 +34,7 @@ class AuthUser {
 			$_SESSION['username'] = ucwords($username);
 
         //TODO: Use this userid session variable for reminders when making create statement
-        $_SESSION['userid'] = $rows['userid'];
+      $_SESSION['userid'] = $rows["id"];
 			unset($_SESSION['failedAuth']);
 
       //Add attempt to database
