@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Reminders</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="app/views/css/reminders.css"> 
     <!-- JS Pluigin -->
@@ -12,6 +12,19 @@
 
 <body>
     <?php require_once 'app/views/templates/navbar.php' ?>
+
+    <?php
+        if (isset($_SESSION['successful_reminder'])) {
+            echo 
+                "<div class='container main text-center'>" .
+                    "<div class='col-lg-12'>" .
+                        "<h3 class = 'text-success'>" . $_SESSION['successful_reminder'] . "</p>" .
+                    "</div>" .
+                "</div>"
+                ;
+            unset($_SESSION['successful_reminder']);
+        }
+    ?>
 
     <div class="container main">
         <div class="row mt-4">
@@ -47,7 +60,7 @@
                             </thead>
                             <tbody>";
                 }
-            
+                // Add data to the table 
                 foreach ($data['reminders'] as $reminder) {
                         echo
                             " <tr>" .
@@ -62,9 +75,3 @@
             </div>
         </div>
     </div>
-
-
-    
-<!-- TODO: Display in table format by iterating through reminders -->
-
-
