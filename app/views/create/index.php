@@ -2,10 +2,14 @@
 
     // Displays username taken message
     if ($_SESSION['taken_username_message']) {
-         
-        echo "<p id='invalid-registration'>" . 
-              $_SESSION['taken_username_message'] .
-              "</p>";
+        echo "<div class='container text-center'>" .
+                    "<div class='col-lg-12 mt-5'>".
+                            "<h5 class = 'text-danger'><br>" .
+                                $_SESSION['taken_username_message'] .
+                            "</h5>" .
+                    "</div>" .
+             "</div>"
+        ;
     
         unset($_SESSION['taken_username_message']);
         

@@ -8,10 +8,10 @@
     
     <!-- **ADDRESSES CACHE ISSUE WHERE CSS DOESN'T LOAD** -->
     <style>
-      <?php include "app/views/css/new_reminder.css" ?>
+      <?php include "app/views/css/create_reminder.css" ?>
     </style>
 
-    <link rel="stylesheet" href="app/views/css/new_reminder.css"
+    <link rel="stylesheet" href="app/views/css/create_reminder.css"
     
     <!-- JS Pluigin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
