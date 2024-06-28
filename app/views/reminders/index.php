@@ -29,6 +29,15 @@
                 "</div>"
                 ;
             unset($_SESSION['successful_reminder']);
+        } else if (isset($_SESSION['successful_deletion']) && $_SESSION['successful_deletion']) {
+            echo
+                "<div class='container main text-center'>" .
+                    "<div class='col-lg-12 mt-5'>" .
+                        "<h3 class = 'text-success'> Reminder deleted successfully!</p>" .
+                    "</div>" .
+                "</div>"
+                ;
+            unset($_SESSION['successful_deletion']);
         }
     ?>
 
@@ -78,7 +87,7 @@
                                         <button type='submit'>Update</button>
                                 </form>" 
                         . "</td>" .
-                            "<td>" . "<form action='/reminders/update_reminder' method='post'>
+                            "<td>" . "<form action='/reminders/delete_reminder' method='post'>
                             <input type='hidden' name='id' value='" . $reminder['id'] . "'>
                                 <button type='submit'>Delete</button>
                         </form>"  . "</td>" .

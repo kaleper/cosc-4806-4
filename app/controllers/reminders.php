@@ -42,6 +42,7 @@ class Reminders extends Controller {
             //TODO: add error message using this variable and style it
             $this ->view('reminders/update_reminder', ['error' => 'Failed to update reminder.']);
           }
+
           // Triggered when user clicks update reminder button on index page, saves the id of the reminder to be updated
         } else {
           if (isset($_POST['id'])) {
@@ -63,5 +64,26 @@ class Reminders extends Controller {
           header('Location: /reminders/index');
           exit();
         }      
+    }
+    public function delete_reminder() {
+
+      if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset ($_POST['id'])) {
+         $reminder = $this->model('Reminder');
+
+          $successful_deletion = $reminder->delete_reminder($_POST['id']);
+
+          
+          if ($successful_deletion) {
+            $_SESSION['successful_deletion'] = true;
+            // Repass all the reminders after deleting a reminder
+            $this->view('reminders/index', [ 'reminders' => $reminder->get_all_reminders()]);
+                        
+            // Don't know why I can't get this passed into view, always turns out undefined -> need to resort to session variables as a result
+                                            // 'successful_deletion_msg' => true]);
+            exit();
+          }
+      
+        
+      }
     }
   }
