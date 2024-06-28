@@ -38,7 +38,7 @@
                                 <div class="form-group mb-1">
                                     <label class="visually-hidden">Reminder</label>
                                     <!--Populates with previous reminder_information, if there is any, to be updated by user. Session variables saved from controller when user initially clicks the update button on a specific reminder -->
-                                        <textarea rows="3"class="form-control" name="update_reminder" required autofocus><?php echo isset($_SESSION['reminder_information']['subject']) ? $_SESSION['reminder_information']['subject'] : ''; ?>
+                                        <textarea class="form-control" name="update_reminder" required autofocus><?php echo isset($_SESSION['reminder_information']['subject']) ? $_SESSION['reminder_information']['subject'] : ''; ?>
                                         </textarea>
                                     
                                 </div>

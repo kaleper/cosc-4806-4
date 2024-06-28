@@ -36,7 +36,7 @@
                             <fieldset class="container mt-4">
                                 <div class="form-group mb-1">
                                     <label class="visually-hidden">Reminder</label>
-                                        <textarea rows="3"class="form-control" placeholder="Reminder" name="reminder" required autofocus> 
+                                        <textarea class="form-control" placeholder="Reminder" name="reminder" required autofocus> 
                                         </textarea>
                                 </div>
                                 <div class="button mt-3">

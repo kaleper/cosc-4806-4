@@ -103,7 +103,7 @@ class Reminders extends Controller {
             
             // Repass all the reminders after deleting a reminder
             $this->view('reminders/index', [ 'reminders' => $reminder->get_all_reminders()]);
-            exit();
+            
           }
   
         // Mark as uncompleted (uncheck)
@@ -114,8 +114,9 @@ class Reminders extends Controller {
     
             // Repass all the reminders after deleting a reminder
             $this->view('reminders/index', [ 'reminders' => $reminder->get_all_reminders()]);
-            exit();
-        }
+            
+          }
+      exit();
       }
     }
   }
