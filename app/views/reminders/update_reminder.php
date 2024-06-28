@@ -24,7 +24,6 @@
     <div class="container main">
         <div class="row mt-4">
             <div class="col-lg-12">
-                <h3 class="reminders">Test</h3>
                 <p> <a class="link" href="/reminders/index">Back to All Reminders</a></p>
             </div>
 
