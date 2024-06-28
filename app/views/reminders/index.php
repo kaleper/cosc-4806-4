@@ -61,7 +61,18 @@
 
                 // Creates a table of reminders if there are reminders associate with the user 
                 if (!$data['reminders']) {
-                    echo "<p>No reminders found.</p>";
+                    echo
+                    "<div class='container text-center'>" .
+                        "<div class='row mt-4'>" .
+                            "<div class='col-lg-12'>"  .
+                                "<h3 class='text'>" .
+                                    "No reminders found." .
+                                "</h3 text>" .
+                            "</div>" .
+                        "</div>" .
+                    "</div>"
+                    ;
+                        
                 } else {
                     // Create table header
                     echo "<table class= 'table table-striped table-hover'>
