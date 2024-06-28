@@ -17,24 +17,38 @@ class Reminder {
       return $rows;
     }
 
-    public function update_reminder ($reminder_id) {
-     //TODO: Update Statement 
-    }
-
     public function create_reminder ($new_reminder) {
        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $db = db_connect();
           // var_dump($_SESSION['userid']);
           $statement = $db->prepare("INSERT INTO reminders(subject, user_id) VALUES (:subject, :userid)");
-          //TODO:Make newReminder session variable
           $statement->bindParam(':subject', $new_reminder);
           $statement->bindParam(':userid', $_SESSION['userid']);
           $statement->execute();
-    
-                $_SESSION['successful_reminder'] = "Reminder created successfully!";
-                header('Location: /reminders/index');
-                die;
+
+         // Save session variable to show to user on view that it was created successfully
+          $_SESSION['successful_reminder'] = "Reminder created successfully!";
+          header('Location: /reminders/index');
+          die;
        }
     }
+
+        // Used to prepopulate reminder update form with existing reminder info
+      public function get_reminder_by_id($reminder_id) {
+           $db = db_connect();
+           $statement = $db->prepare("SELECT * FROM reminders WHERE id = :id");
+           $statement->bindParam(':id', $reminder_id);
+           $statement->execute();
+           return $statement->fetch(PDO::FETCH_ASSOC);
+       }
+
+        // Triggered when user updates reminder (submits form on update_reminder.php)
+      public function update_reminder_text($reminder_id, $update_reminder_text) {
+          $db = db_connect();
+          $statement = $db->prepare("UPDATE reminders SET subject = :subject WHERE id = :id");
+          $statement->bindParam(':subject', $update_reminder_text);
+          $statement->bindParam(':id', $reminder_id);
+          return $statement->execute();
+      }
 }
 ?>

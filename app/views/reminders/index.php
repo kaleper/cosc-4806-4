@@ -6,11 +6,12 @@
     <title>Reminders</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
-    <!-- **ADDRESSES CACHE ISSUE WHERE CSS DOESN'T LOAD** -->
-    <style>
-      <?php include "app/views/css/new_reminder.css" ?>
+    <!-- **ADDRESSES CACHE ISSUE WHERE CSS DOESN'T LOAD**  -->
+    
+   <style>
+      <?php include "app/views/css/reminders.css"?>
     </style>
-    <link rel="stylesheet" href="app/views/css/reminders.css?"
+    <link rel="stylesheet" href="app/views/css/reminders.css"
     <!-- JS Pluigin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
@@ -22,7 +23,7 @@
         if (isset($_SESSION['successful_reminder'])) {
             echo 
                 "<div class='container main text-center'>" .
-                    "<div class='col-lg-12'>" .
+                    "<div class='col-lg-12 mt-5'>" .
                         "<h3 class = 'text-success'>" . $_SESSION['successful_reminder'] . "</p>" .
                     "</div>" .
                 "</div>"
@@ -65,17 +66,24 @@
                             </thead>
                             <tbody>";
                 }
-                // Add data to the table 
+                
                 foreach ($data['reminders'] as $reminder) {
-                        echo
-                            " <tr>" .
-                                "<td>" . $reminder['subject'] . "</td>" .
-                                "<td>" . $reminder['created_at'] . "</td>" .
-                                "<td>" . $reminder['completed'] . "</td>" .
-                                "<td>" . "<a href='#'> Update </a>". "</td>" .
-                                "<td>" . "<a href='#'> Delete </a>". "</td>" 
-                            ;
-                    }
+                    echo "<tr>" .
+                            "<td>" . $reminder['subject'] . "</td>" .
+                            "<td>" . $reminder['created_at'] . "</td>" .
+                            "<td>" . $reminder['completed'] . "</td>" .
+                            "<td>" . 
+                                "<form action='/reminders/update_reminder' method='post'>
+                                    <input type='hidden' name='id' value='" . $reminder['id'] . "'>
+                                        <button type='submit'>Update</button>
+                                </form>" 
+                        . "</td>" .
+                            "<td>" . "<form action='/reminders/update_reminder' method='post'>
+                            <input type='hidden' name='id' value='" . $reminder['id'] . "'>
+                                <button type='submit'>Delete</button>
+                        </form>"  . "</td>" .
+                         "</tr>";
+                }
                 ?>
             </div>
         </div>
