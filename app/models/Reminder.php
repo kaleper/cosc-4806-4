@@ -53,10 +53,24 @@ class Reminder {
 
 
      public function delete_reminder($reminder_id) {
-              $db = db_connect();
-              $statement = $db->prepare("DELETE FROM reminders WHERE id = :id");
-              $statement->bindParam(':id', $reminder_id);
-              return $statement->execute();
-          }
+          $db = db_connect();
+          $statement = $db->prepare("DELETE FROM reminders WHERE id = :id");
+          $statement->bindParam(':id', $reminder_id);
+          return $statement->execute();
+      }
+
+    public function complete_reminder($reminder_id) {
+          $db = db_connect();
+          $statement = $db->prepare("UPDATE reminders SET completed = true WHERE id = :id");
+          $statement->bindParam(':id', $reminder_id);
+          return $statement->execute();
+      }
+
+    public function uncomplete_reminder($reminder_id) {
+          $db = db_connect();
+          $statement = $db->prepare("UPDATE reminders SET completed = false WHERE id = :id");
+          $statement->bindParam(':id', $reminder_id);
+          return $statement->execute();
+      }
 }
 ?>

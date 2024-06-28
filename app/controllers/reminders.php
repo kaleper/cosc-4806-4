@@ -86,4 +86,37 @@ class Reminders extends Controller {
         
       }
     }
+
+  public function complete_reminder() {
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+       $reminder = $this->model('Reminder');
+
+
+      //  Mark as completed (check)
+      if (isset ($_POST['id']) && $_POST['completed'] == true) {
+      
+          $successful_completion = $reminder->complete_reminder($_POST['id']);
+  
+          if ($successful_completion) {
+            
+            // Repass all the reminders after deleting a reminder
+            $this->view('reminders/index', [ 'reminders' => $reminder->get_all_reminders()]);
+            exit();
+          }
+  
+        // Mark as uncompleted (uncheck)
+      } else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset ($_POST['id']) && $_POST['completed'] == false) {
+        $successful_uncompletion = $reminder->uncomplete_reminder($_POST['id']);
+  
+          if ($successful_uncompletion) {
+    
+            // Repass all the reminders after deleting a reminder
+            $this->view('reminders/index', [ 'reminders' => $reminder->get_all_reminders()]);
+            exit();
+        }
+      }
+    }
   }
+}

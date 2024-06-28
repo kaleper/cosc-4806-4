@@ -80,17 +80,24 @@
                     echo "<tr>" .
                             "<td>" . $reminder['subject'] . "</td>" .
                             "<td>" . $reminder['created_at'] . "</td>" .
-                            "<td>" . $reminder['completed'] . "</td>" .
-                            "<td>" . 
-                                "<form action='/reminders/update_reminder' method='post'>
-                                    <input type='hidden' name='id' value='" . $reminder['id'] . "'>
+                                // If reminder is completed, display checkmark
+                                "<td>" .
+                                    "<form action='/reminders/complete_reminder' method='post'>" .
+                                        "<input type='hidden' name='id' value='" . $reminder['id'] . "'>" .
+                                        "<input type='checkbox' name='completed' " . ($reminder['completed'] ? 'checked' : '') . " onchange='this.form.submit()'>" .
+                                    "</form>" .
+                                "<td>" . 
+                                    "<form action='/reminders/update_reminder' method='post'>
+                                        <input type='hidden' name='id' value='" . $reminder['id'] . "'>
                                         <button type='submit'>Update</button>
-                                </form>" 
-                        . "</td>" .
-                            "<td>" . "<form action='/reminders/delete_reminder' method='post'>
-                            <input type='hidden' name='id' value='" . $reminder['id'] . "'>
-                                <button type='submit'>Delete</button>
-                        </form>"  . "</td>" .
+                                    </form>" .  
+                                "</td>" .
+                                "<td>" .    
+                                    "<form action='/reminders/delete_reminder' method='post'>
+                                        <input type='hidden' name='id' value='" . $reminder['id'] . "'>
+                                        <button type='submit'>Delete</button>
+                                    </form>"  . 
+                                "</td>" .
                          "</tr>";
                 }
                 ?>
