@@ -64,9 +64,9 @@
                     echo "<p>No reminders found.</p>";
                 } else {
                     // Create table header
-                    echo "<table class= 'table table-striped'>
+                    echo "<table class= 'table table-striped table-hover'>
                             <thead>
-                                <tr>
+                                <tr class= 'table-dark text-center'>
                                      <th> Reminder </th>
                                      <th> Date Created </th>
                                      <th> Completed? </th>
@@ -77,25 +77,25 @@
                 }
                 
                 foreach ($data['reminders'] as $reminder) {
-                    echo "<tr>" .
+                    echo "<tr class= 'text-center'>" .
                             "<td>" . $reminder['subject'] . "</td>" .
-                            "<td>" . $reminder['created_at'] . "</td>" .
+                            "<td>" . (new DateTime($reminder['created_at']))->format('M d, Y \a\t h:iA') . "</td>" .
                                 // If reminder is completed, display checkmark
                                 "<td>" .
                                     "<form action='/reminders/complete_reminder' method='post'>" .
                                         "<input type='hidden' name='id' value='" . $reminder['id'] . "'>" .
                                         "<input type='checkbox' name='completed' " . ($reminder['completed'] ? 'checked' : '') . " onchange='this.form.submit()'>" .
                                     "</form>" .
-                                "<td>" . 
+                                "<td class='text-end'>" . 
                                     "<form action='/reminders/update_reminder' method='post'>
                                         <input type='hidden' name='id' value='" . $reminder['id'] . "'>
-                                        <button type='submit'>Update</button>
+                                        <button type='submit' class='btn btn-success'>Update</button>
                                     </form>" .  
                                 "</td>" .
-                                "<td>" .    
+                                "<td class='text-start'>" .    
                                     "<form action='/reminders/delete_reminder' method='post'>
                                         <input type='hidden' name='id' value='" . $reminder['id'] . "'>
-                                        <button type='submit'>Delete</button>
+                                        <button type='submit' class='btn btn-danger'>Delete</button>
                                     </form>"  . 
                                 "</td>" .
                          "</tr>";
